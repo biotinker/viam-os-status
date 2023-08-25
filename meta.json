@@ -1,0 +1,13 @@
+{
+  "module_id": "biotinker:viam-os-status",
+  "visibility": "public",
+  "url": "https://github.com/biotinker/viam-os-status/",
+  "description": "osstats is a Viam modular sensor component that provides a variety of operating system feedback for unix systems",
+  "models": [
+    {
+      "api": "rdk:component:board",
+      "model": "biotinker:sensor:osstats"
+    }
+  ],
+  "entrypoint": "run.sh"
+}
