@@ -11,9 +11,17 @@ jobs:
     - name: build
       run: tar -czf module.tar.gz run.sh requirements.txt src
     - uses: viamrobotics/upload-module@main
-      # if: github.event_name == 'release' # <-- once the action is working, uncomment this so you only upload on release
+      #if: github.event_name == 'release' # <-- once the action is working, uncomment this so you only upload on release
       with:
         module-path: module.tar.gz
         platform: linux/amd64 # <-- replace with your target architecture, or your module will not deploy
         version: ${{ github.event_name == 'release' && github.ref_name || format('0.0.0-{0}.{1}', github.ref_name, github.run_number) }} # <-- see 'Versioning' section below for explanation
         cli-config-secret: ${{ secrets.cli_config }}
+    - uses: viamrobotics/upload-module@main
+      #if: github.event_name == 'release' # <-- once the action is working, uncomment this so you only upload on release
+      with:
+        module-path: module.tar.gz
+        platform: linux/arm64 # <-- replace with your target architecture, or your module will not deploy
+        version: ${{ github.event_name == 'release' && github.ref_name || format('0.0.0-{0}.{1}', github.ref_name, github.run_number) }} # <-- see 'Versioning' section below for explanation
+        cli-config-secret: ${{ secrets.cli_config }}
+
