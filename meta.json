@@ -5,7 +5,7 @@
   "description": "osstats is a Viam modular sensor component that provides a variety of operating system feedback for unix systems",
   "models": [
     {
-      "api": "rdk:component:board",
+      "api": "rdk:component:sensor",
       "model": "biotinker:sensor:osstats"
     }
   ],
